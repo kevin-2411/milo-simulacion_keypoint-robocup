@@ -5,5 +5,6 @@ base: {x: -2.145, y: -1.770, yaw: -1.564}
 indoor: {x: -6.644, y: -2.153, yaw: -0.259}
 outdoor: {x: -5.998, y: -3.982, yaw: -3.171}
 tv_stand: {x: -4.350, y: -0.433, yaw: 1.480}
-
-
+coffee_table: {x: -0.789, y: -4.823, yaw: -1.539}
+laundry_table: {x: -4.137, y: 4.912, yaw: 1.649}
+bedside_table: {x: 1.961, y: 2.764, yaw: 2.969}
