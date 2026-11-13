@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<sdf version="1.6"><model name="bag"><static>true</static><link name="link">
+  <visual name="v"><pose>0 0 0.175 0 0 0</pose><geometry><box><size>0.2 0.26 0.35</size></box></geometry><material><script><uri>model://bag/materials/scripts</uri><uri>model://bag/materials/textures</uri><name>Tex/bag</name></script></material></visual>
+  <collision name="c"><pose>0 0 0.175 0 0 0</pose><geometry><box><size>0.2 0.26 0.35</size></box></geometry></collision>
+</link></model></sdf>

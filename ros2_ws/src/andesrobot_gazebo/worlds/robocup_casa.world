@@ -368,5 +368,161 @@
         <visual name="v"><geometry><box><size>0.040 0.420 0.400</size></box></geometry><material><ambient>0.25 0.22 0.20 1</ambient><diffuse>0.25 0.22 0.20 1</diffuse></material></visual>
       </link>
     </model>
+    <model name="obj0_cup">
+      <pose>2.85 -2.13 0.755 0 0 0</pose>
+      <link name="link_0">
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///ros2_ws/entrega_simulacion/models/Threshold_Porcelain_Coffee_Mug_All_Over_Bead_White/meshes/model.obj</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision_0">
+          <geometry>
+            <mesh>
+              <uri>file:///ros2_ws/entrega_simulacion/models/Threshold_Porcelain_Coffee_Mug_All_Over_Bead_White/meshes/model.obj</uri>
+            </mesh>
+          </geometry>
+        </collision>
+      </link>
+    </model>
+
+    <model name="obj1_bowl">
+      <pose>2.94 -1.80 0.755 0 0 0</pose>
+      <link name="link_0">
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///ros2_ws/entrega_simulacion/models/Room_Essentials_Bowl_Turquiose/meshes/model.obj</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision_0">
+          <geometry>
+            <mesh>
+              <uri>file:///ros2_ws/entrega_simulacion/models/Room_Essentials_Bowl_Turquiose/meshes/model.obj</uri>
+            </mesh>
+          </geometry>
+        </collision>
+      </link>
+    </model>
+
+    <model name="obj2_card">
+      <pose>0.91 2.87 0.550 0 0 0</pose>
+      <static>true</static>
+      <link name="link">
+        <visual name="v">
+          <pose>0 0 0.027 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.004 0.0856 0.054</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <uri>file:///ros2_ws/entrega_simulacion/models/card/materials/scripts</uri>
+              <uri>file:///ros2_ws/entrega_simulacion/models/card/materials/textures</uri>
+              <name>Tex/card</name>
+            </script>
+          </material>
+        </visual>
+        <collision name="c">
+          <pose>0 0 0.027 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.004 0.0856 0.054</size>
+            </box>
+          </geometry>
+        </collision>
+      </link>
+    </model>
+    <model name="obj3_redbull_can">
+      <pose>-0.77 -5.88 0.455 0 0 0</pose>
+      <static>false</static>
+      <link name="link">
+        <inertial>
+          <mass>0.1</mass>
+          <inertia>
+            <ixx>0.0001</ixx>
+            <iyy>0.0001</iyy>
+            <izz>0.0001</izz>
+          </inertia>
+        </inertial>
+        <visual name="v">
+          <geometry>
+            <mesh>
+              <uri>file:///ros2_ws/entrega_simulacion/models/redbull_sketchfab/meshes/model.obj</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="c">
+          <pose>0 0 0.0670 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.0455 0.0455 0.1340</size>
+            </box>
+          </geometry>
+        </collision>
+      </link>
+    </model>
+    <model name="obj4_pringles">
+      <pose>-4.312 0.642 0.505 0 0 0</pose>
+      <static>false</static>
+      <link name="link">
+        <inertial>
+          <mass>0.1</mass>
+          <inertia>
+            <ixx>0.0001</ixx>
+            <iyy>0.0001</iyy>
+            <izz>0.0001</izz>
+          </inertia>
+        </inertial>
+        <visual name="v">
+          <geometry>
+            <mesh>
+              <uri>file:///ros2_ws/entrega_simulacion/models/pringles_sketchfab/meshes/model.obj</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="c">
+          <pose>0 0 0.1175 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.1027 0.1562 0.2350</size>
+            </box>
+          </geometry>
+        </collision>
+      </link>
+    </model>
+    <model name="obj5_bag">
+      <pose>-4.298 5.80 0.750 0 0 0</pose>
+      <static>true</static>
+      <link name="link">
+        <visual name="v">
+          <pose>0 0 0.175 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.2 0.26 0.35</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <uri>file:///ros2_ws/entrega_simulacion/models/bag/materials/scripts</uri>
+              <uri>file:///ros2_ws/entrega_simulacion/models/bag/materials/textures</uri>
+              <name>Tex/bag</name>
+            </script>
+          </material>
+        </visual>
+        <collision name="c">
+          <pose>0 0 0.175 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.2 0.26 0.35</size>
+            </box>
+          </geometry>
+        </collision>
+      </link>
+    </model>
   </world>
 </sdf>

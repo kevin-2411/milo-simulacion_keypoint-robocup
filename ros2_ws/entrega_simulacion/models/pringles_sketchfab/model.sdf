@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<sdf version="1.6"><model name="pringles_sketchfab"><static>false</static><link name="link">
+  <inertial><mass>0.1</mass><inertia><ixx>0.0001</ixx><iyy>0.0001</iyy><izz>0.0001</izz></inertia></inertial>
+  <visual name="v"><geometry><mesh><uri>model://pringles_sketchfab/meshes/model.obj</uri></mesh></geometry></visual>
+  <collision name="c"><pose>0 0 0.1175 0 0 0</pose><geometry><box><size>0.1027 0.1562 0.2350</size></box></geometry></collision>
+</link></model></sdf>

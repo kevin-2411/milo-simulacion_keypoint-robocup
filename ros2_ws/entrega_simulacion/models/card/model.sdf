@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<sdf version="1.6"><model name="card"><static>true</static><link name="link">
+  <visual name="v"><pose>0 0 0.027 0 0 0</pose><geometry><box><size>0.004 0.0856 0.054</size></box></geometry><material><script><uri>model://card/materials/scripts</uri><uri>model://card/materials/textures</uri><name>Tex/card</name></script></material></visual>
+  <collision name="c"><pose>0 0 0.027 0 0 0</pose><geometry><box><size>0.004 0.0856 0.054</size></box></geometry></collision>
+</link></model></sdf>

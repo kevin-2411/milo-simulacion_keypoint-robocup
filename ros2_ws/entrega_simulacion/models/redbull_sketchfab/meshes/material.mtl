@@ -1,0 +1,28 @@
+# https://github.com/mikedh/trimesh
+
+newmtl material
+Ka 1.0 1.0 1.0
+Kd 1.0 1.0 1.0
+Ks 0.40000000 0.40000000 0.40000000
+Ns 1.00000000
+
+newmtl silver
+Ka 1.0 1.0 1.0
+Kd 1.0 1.0 1.0
+Ks 0.40000000 0.40000000 0.40000000
+Ns 1.00000000
+map_Kd silver.png
+
+newmtl top_part
+Ka 1.0 1.0 1.0
+Kd 1.0 1.0 1.0
+Ks 0.40000000 0.40000000 0.40000000
+Ns 1.00000000
+map_Kd top_part.png
+
+newmtl label
+Ka 1.0 1.0 1.0
+Kd 1.0 1.0 1.0
+Ks 0.40000000 0.40000000 0.40000000
+Ns 1.00000000
+map_Kd label.png

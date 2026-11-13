@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<sdf version="1.6"><model name="redbull_sketchfab"><static>false</static><link name="link">
+  <inertial><mass>0.1</mass><inertia><ixx>0.0001</ixx><iyy>0.0001</iyy><izz>0.0001</izz></inertia></inertial>
+  <visual name="v"><geometry><mesh><uri>model://redbull_sketchfab/meshes/model.obj</uri></mesh></geometry></visual>
+  <collision name="c"><pose>0 0 0.0670 0 0 0</pose><geometry><box><size>0.0455 0.0455 0.1340</size></box></geometry></collision>
+</link></model></sdf>
