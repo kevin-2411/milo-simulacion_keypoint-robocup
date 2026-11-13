@@ -1,3 +1,98 @@
+# Entrega de navegación de MILO en la casa RoboCup
+
+Esta entrega incluye la corrección del arranque de Nav2, los puntos de
+aproximación a los muebles y la ubicación de seis objetos en Gazebo.
+
+## Ejecutar la simulación
+
+Con Docker y Docker Compose configurados en Ubuntu, clona el repositorio
+y abre la casa. Si ya tienes esta copia, ejecuta `./sim.sh nav casa`
+desde la raíz del repositorio.
+
+```bash
+git clone https://github.com/kevin-2411/milo-simulacion_keypoint-robocup.git
+cd milo-simulacion_keypoint-robocup
+./sim.sh nav casa
+```
+
+Deja esa terminal abierta mientras se ejecutan Gazebo y RViz. Desde otra
+terminal, en la raíz del repositorio, lista los destinos y prueba uno.
+
+```bash
+./sim.sh ir --lista
+./sim.sh ir coffee_table
+```
+
+La terminal muestra `SUCCEEDED` cuando Nav2 alcanza la pose objetivo.
+En Gazebo se puede comprobar dónde se detuvo MILO y hacia dónde apunta.
+
+## Keypoints agregados y cómo probarlos
+
+Estos cuatro destinos se agregaron a `casa_lugares.yaml` y se probaron en la simulación de la casa.
+
+| Keypoint | Dónde debe detenerse MILO | Comando |
+| --- | --- | --- |
+| `tv_stand` | Frente al mueble del televisor | `./sim.sh ir tv_stand` |
+| `coffee_table` | Frente a la mesita junto al sofá | `./sim.sh ir coffee_table` |
+| `laundry_table` | Frente a la mesa de la lavandería | `./sim.sh ir laundry_table` |
+| `bedside_table` | Frente a la mesa de noche del dormitorio | `./sim.sh ir bedside_table` |
+
+Con la simulación abierta (`./sim.sh nav casa`), abre otra terminal en la raíz del repositorio y lista los destinos disponibles:
+
+```bash
+./sim.sh ir --lista
+```
+
+Ejecuta **un comando de la tabla a la vez**. Para observar el recorrido, empieza desde un punto distinto al destino. La prueba termina cuando la terminal muestra `SUCCEEDED` y en Gazebo se ve a MILO detenido frente al mueble y orientado hacia él.
+
+También se probaron dos destinos que ya venían en el proyecto: `dining_table` (mesa del comedor) y `sofa` (sofá).
+
+## Cambios de la entrega
+
+| Archivo o carpeta | Cambio |
+| --- | --- |
+| [sim_navigation.launch.py](ros2_ws/src/andesrobot_bringup/launch/sim_navigation.launch.py) | Se pasa explícitamente el archivo de parámetros a Nav2 para que el controlador DWB cargue sus criterios y pueda arrancar la navegación. |
+| [casa_lugares.yaml](ros2_ws/src/andesrobot_slam/maps/casa_lugares.yaml) | Se guardaron `tv_stand`, `coffee_table`, `laundry_table` y `bedside_table`. También se probaron los destinos existentes `dining_table` y `sofa`. |
+| [robocup_casa.world](ros2_ws/src/andesrobot_gazebo/worlds/robocup_casa.world) | Se ubicaron la taza y el tazón en el comedor, la lata de Red Bull en la mesita de la sala, los Pringles en el mueble del televisor, la tarjeta en la mesa de noche y la bolsa en la lavandería. |
+| [models](ros2_ws/entrega_simulacion/models) | Se incorporaron los modelos, las mallas y las texturas entregados por el equipo. Los objetos aparecen al abrir la casa. |
+
+[Ver los cambios de código de la entrega](https://github.com/kevin-2411/milo-simulacion_keypoint-robocup/compare/03bab91...4ce8eb2).
+
+## Cómo se establecieron los keypoints
+
+1. Con `./sim.sh teleop`, se llevó a MILO frente a cada mueble desde un lado
+   accesible, dejando espacio para la base y orientando el robot hacia la
+   superficie.
+2. Con el robot quieto, se abrió `./sim.sh shell` y se midió la pose de
+   `base_footprint` en el marco `map` con este comando.
+
+   ```bash
+   timeout 5s ros2 run tf2_ros tf2_echo map base_footprint
+   ```
+
+3. Se guardaron `x` e `y` de `Translation` en metros y el último componente
+   de `RPY (radian)` como `yaw` en `casa_lugares.yaml`. Por ejemplo:
+
+   ```yaml
+   coffee_table: {x: -0.789, y: -4.823, yaw: -1.539}
+   ```
+
+4. Se alejó a MILO del mueble y se probó el regreso con `./sim.sh ir NOMBRE`.
+   Se comprobó el resultado en la terminal y la posición final en Gazebo.
+
+Cada keypoint indica dónde debe detenerse y hacia dónde debe mirar MILO.
+La posición de cada objeto sobre su mueble está definida en el mundo de Gazebo.
+
+## Pendiente de navegación
+
+En algunas pruebas, MILO se atascó al rodear la esquina del muro entre el
+comedor y el dormitorio. Se observó en ambos sentidos, aunque el trayecto
+del comedor al dormitorio también funcionó en una prueba con la pose de
+`bedside_table` ajustada.
+
+---
+
+
 <div align="center">
 
 # 🤖 milo_ws
