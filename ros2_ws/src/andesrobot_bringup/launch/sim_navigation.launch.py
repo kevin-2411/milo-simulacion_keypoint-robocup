@@ -69,6 +69,7 @@ def generate_launch_description():
         ),
         launch_arguments={
             'map': LaunchConfiguration('map'),
+            'params_file': PathJoinSubstitution([pkg_nav, 'config', 'nav2_params.yaml']),
             'use_sim_time': 'true',
             'ubicaciones': LaunchConfiguration('ubicaciones'),
             # AMCL parte donde aparece Milo (map = mundo en la sim)
